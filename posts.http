@@ -1,11 +1,21 @@
 GET http://localhost:3000/api/post
 
-###
+### crear post
 POST http://localhost:3000/api/post
 Content-Type: application/json
 
 {
-    "title": "primer",
-    "content": "ASasAS",
-    "link": "SDADASDAS"
+    "title": "segundo",
+    "content": "conetnido 2",
+    "link": "una url"
+}
+
+### Modificar Post
+
+PUT http://localhost:3000/api/4
+Content-Type: application/json
+
+{
+    "title": "Titulo actualizado",
+    "content" : "Contenido actualizado "
 }

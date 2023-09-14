@@ -2,7 +2,7 @@
 
 import { PostModel } from "../models/Post.js"
 
-//controlador para todos los Post
+//controlador para mostrar todos los Post
 
 export const ctrlGetPost = async (_req, res) => {
     try {
@@ -32,11 +32,15 @@ export const ctrlCreatePost = async (req, res) => {
 //    if(title === "" || content === "" || link === ""){
 //      return res.sendStatus(404)
 //    }
-   
-
-   const newPost = await PostModel.create(req.body)
-   
-   return res.json(newPost)
+    try {
+        const newPost = await PostModel.create(req.body)
+        return res.status(201).json(newPost)
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({
+            message: 'Error Server'
+        })
+    }
 }
 
 //controlador para actualizar un Post

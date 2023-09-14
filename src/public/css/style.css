@@ -1,0 +1,8 @@
+img{
+    height: 300px;
+    object-fit: cover;
+}
+h5 {
+ font-style: italic;
+ font-size: 20px;
+}
