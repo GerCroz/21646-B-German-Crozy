@@ -1,20 +1,22 @@
-import { ctrlCreatePost, ctrlDeletePost, ctrlGetPost, ctrlUpdatePost } from "../controllers/post.controllers.js";
-import { Router } from "express";
-import { validation } from "../middlewares/validator.js";
+import { Router } from 'express';
+import { ctrlCreatePost, ctrlDeletePost, ctrlGetPosts, ctrlShowView, ctrlUpdatePost } from '../controllers/post.controllers.js';
+import { validationPost, validationUpdate } from '../middlewares/validator.js';
 
 const postRouter = Router();
 
-// endpoint para traer todos los Post
-postRouter.get('/api/post', ctrlGetPost)
+// ruta de la vista de los posteos
+postRouter.get('/', ctrlShowView);
 
-// endpoint para crear un Post
-postRouter.post('/api/post', validation, ctrlCreatePost)
+// Ruta para obtener todos los posts
+postRouter.get('/api/posts', ctrlGetPosts);
 
-// endpoint para actualizar un Post
-postRouter.put('/api/:id', ctrlUpdatePost)
+// Ruta para crear un nuevo post
+postRouter.post('/api/posts', validationPost, ctrlCreatePost);
 
-// endpoint para eliminar un post
-postRouter.delete('/api/:id', ctrlDeletePost)
+// Ruta para actualizar un post por su ID
+postRouter.put('/api/posts/:id', validationUpdate, ctrlUpdatePost);
 
+// Ruta para eliminar un post por su ID
+postRouter.delete('/api/posts/:id', ctrlDeletePost);
 
-export { postRouter }
+export { postRouter };
