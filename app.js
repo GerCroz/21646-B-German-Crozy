@@ -6,7 +6,10 @@ const app = express();
 
 const port = 3000;
 
-app.use ('/', postRouter)
+//middlewares
+app.use(express.json())
+
+app.use('/', postRouter)
 
 app.listen(port, () => {
     console.log(`server listening http://localhost${port}`);

@@ -1,5 +1,6 @@
 import { ctrlCreatePost, ctrlDeletePost, ctrlGetPost, ctrlUpdatePost } from "../controllers/post.controllers.js";
 import { Router } from "express";
+import { validation } from "../middlewares/validator.js";
 
 const postRouter = Router();
 
@@ -7,7 +8,7 @@ const postRouter = Router();
 postRouter.get('/api/post', ctrlGetPost)
 
 // endpoint para crear un Post
-postRouter.post('/api/post', ctrlCreatePost)
+postRouter.post('/api/post', validation, ctrlCreatePost)
 
 // endpoint para actualizar un Post
 postRouter.put('/api/:id', ctrlUpdatePost)
