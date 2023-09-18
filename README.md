@@ -11,7 +11,7 @@
 # ...[Proyecto CRUD con Express]...
 
 Este es el back-end del sistema de [German].
-Acá se conecta la [LINK]() y el [LINK]().
+
 
 ## Contenido
 
